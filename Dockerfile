@@ -22,7 +22,8 @@ RUN haxelib git flixel https://github.com/haxeflixel/flixel html5-template
 RUN haxelib install flixel-ui
 RUN haxelib install flixel-addons
 RUN haxelib install flixel-demos
-RUN haxelib install flixel-tools
+RUN haxelib git flixel-tools https://github.com/HaxeFlixel/flixel-tools.git demo-server
 RUN haxelib list
 
-RUN haxelib run flixel-tools bp html5 -server
+RUN mkdir /root/demos
+WORKDIR /root/demos

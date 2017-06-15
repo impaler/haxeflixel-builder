@@ -37,8 +37,8 @@ build-image() {
 build-demos() {
   log "Building demos with a new container"
   run
-  
-  docker exec $CONTAINER_NAME haxelib run flixel-tools bp html5 -server
+
+  docker exec $CONTAINER_NAME haxelib run flixel-tools bp html5 -server -O-final
 
   log "Built the demos now copying them to your cwd"
 

@@ -18,7 +18,7 @@ RUN haxelib install hscript
 RUN haxelib install lime 2.9.1
 RUN haxelib install openfl 3.6.1
 
-RUN haxelib git flixel https://github.com/haxeflixel/flixel html5-template
+RUN haxelib git flixel https://github.com/haxeflixel/flixel
 RUN haxelib install flixel-ui
 RUN haxelib install flixel-addons
 RUN haxelib install flixel-demos

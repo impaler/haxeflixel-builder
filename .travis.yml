@@ -1,0 +1,13 @@
+sudo: required
+
+language: haxe
+
+services:
+  - docker
+
+before_install:
+  - bash commands.sh
+  - bash commands.sh build-image
+
+script:
+  - bash commands.sh build-demos

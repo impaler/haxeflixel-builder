@@ -11,3 +11,4 @@ before_install:
 
 script:
   - bash commands.sh build-demos
+  - du --max-depth=1 --human-readable *

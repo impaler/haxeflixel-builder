@@ -29,9 +29,7 @@ error() {
 
 build-image() {
   log "Building the Dockerfile to an image called $IMAGE_NAME"
-  docker build -t $IMAGE_NAME . 
-  
-  [ $? != 0 ] && error "Failed to build docker image $IMAGE_NAME" && exit 100
+  docker build -t $IMAGE_NAME .
 }
 
 build-demos() {

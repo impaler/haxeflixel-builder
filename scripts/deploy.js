@@ -1,7 +1,7 @@
 const execSync = require('child_process').execSync
 const TRAVIS_BRANCH = process.env['TRAVIS_BRANCH'] || 'unknown branch'
 const KEY_NAME = 'deploy'
-const BUILD_FOLDER = 'server'
+const BUILD_FOLDER = 'scripts/server'
 
 if (/master|dev/.test(TRAVIS_BRANCH)) {
     try {

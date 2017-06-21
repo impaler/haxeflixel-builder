@@ -11,6 +11,7 @@ before_install:
 script:
 - bash scripts/commands.sh build-demos
 - du --max-depth=1 --human-readable *
+- du --max-depth=2 --human-readable --all * | grep '.js'
 deploy:
   provider: script
   skip_cleanup: true

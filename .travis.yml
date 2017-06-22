@@ -10,8 +10,8 @@ before_install:
 - bash scripts/commands.sh build-image
 script:
 - bash scripts/commands.sh build-demos
-- du --max-depth=1 --human-readable *
-- du --max-depth=2 --human-readable --all * | grep '.js'
+- du --max-depth=1 --human-readable scripts/server
+- du --max-depth=2 --human-readable --all scripts/server | grep '.js'
 before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 $TRAVIS_BUILD_DIR/deploy

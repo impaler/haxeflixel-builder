@@ -12,6 +12,9 @@ script:
 - bash scripts/commands.sh build-demos
 - du --max-depth=1 --human-readable *
 - du --max-depth=2 --human-readable --all * | grep '.js'
+before_deploy:
+- eval "$(ssh-agent -s)"
+- chmod 600 $TRAVIS_BUILD_DIR/deploy
 deploy:
   provider: script
   skip_cleanup: true

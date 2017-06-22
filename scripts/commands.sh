@@ -9,6 +9,8 @@ BLUE="\\033[1;34m"
 CONTAINER_NAME='haxeflixel-docker-00'
 IMAGE_NAME='haxeflixel-docker'
 
+cd scripts
+
 if [ -z "$*" ]; then
     echo "This script contains utilities for working with the haxeflixel-docker image."
     echo "You need to provide at least one command for this script:"

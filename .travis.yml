@@ -1,14 +1,23 @@
-sudo: required
-
-language: haxe
-
+language: node_js
+node_js:
+- 8
 services:
-  - docker
-
+- docker
 before_install:
-  - bash commands.sh
-  - bash commands.sh build-image
-
+- openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv
+  -in deploy.enc -out deploy -d
+- bash scripts/commands.sh
+- bash scripts/commands.sh build-image
 script:
-  - bash commands.sh build-demos
-  - du --max-depth=1 --human-readable *
+- bash scripts/commands.sh build-demos
+- du --max-depth=1 --human-readable scripts/server
+- du --max-depth=2 --human-readable --all scripts/server | grep '.js'
+before_deploy:
+- eval "$(ssh-agent -s)"
+- chmod 600 $TRAVIS_BUILD_DIR/deploy
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: node scripts/deploy.js
+  on:
+    all_branches: true

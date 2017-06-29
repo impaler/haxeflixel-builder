@@ -19,17 +19,20 @@ RUN haxelib install hscript > /dev/null
 RUN haxelib install lime 2.9.1 > /dev/null
 RUN haxelib install openfl 3.6.1 > /dev/null
 
-ARG FLIXEL_GIT="dev"
-ARG FLIXEL_UI_GIT="dev"
-ARG FLIXEL_ADDONS_GIT="dev"
 ARG FLIXEL_DEMOS_GIT="dev"
-ARG FLIXEL_TOOLS_GIT="demo-server"
-
-RUN haxelib git flixel https://github.com/haxeflixel/flixel $FLIXEL_GIT > /dev/null
-RUN haxelib git flixel-ui https://github.com/haxeflixel/flixel-ui $FLIXEL_UI_GIT > /dev/null
-RUN haxelib git flixel-addons https://github.com/haxeflixel/flixel-addons $FLIXEL_ADDONS_GIT > /dev/null
 RUN haxelib git flixel-demos https://github.com/haxeflixel/flixel-demos $FLIXEL_DEMOS_GIT > /dev/null
+
+ARG FLIXEL_UI_GIT="dev"
+RUN haxelib git flixel-ui https://github.com/haxeflixel/flixel-ui $FLIXEL_UI_GIT > /dev/null
+
+ARG FLIXEL_ADDONS_GIT="dev"
+RUN haxelib git flixel-addons https://github.com/haxeflixel/flixel-addons $FLIXEL_ADDONS_GIT > /dev/null
+
+ARG FLIXEL_TOOLS_GIT="demo-server"
 RUN haxelib git flixel-tools https://github.com/HaxeFlixel/flixel-tools.git $FLIXEL_TOOLS_GIT > /dev/null
+
+ARG FLIXEL_GIT="dev"
+RUN haxelib git flixel https://github.com/haxeflixel/flixel $FLIXEL_GIT > /dev/null
 
 RUN haxelib list
 
